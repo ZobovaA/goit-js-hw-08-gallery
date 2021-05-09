@@ -8,7 +8,10 @@ const btnCloseEl = document.querySelector('.lightbox__button')
 const addGalleryElement = galleryItems
   .map(({ preview, original, description }, index) => {
     return  `<li class="gallery__item">
-   
+    <a
+    class="gallery__link"
+    href="${original}"
+  >
       <img
         class="gallery__image"
         src="${preview}"
@@ -16,7 +19,7 @@ const addGalleryElement = galleryItems
         data-index=${index}
         alt="${description}"
       />
-   
+   </a>
   </li>`;
   })
   .join(' ')
@@ -24,10 +27,11 @@ const addGalleryElement = galleryItems
 listEl.insertAdjacentHTML('beforeend', addGalleryElement)
 listEl.addEventListener('click', clicker)
 function clicker(event) {
+  event.preventDefault()
   if (event.target.src) {
-    lboxEl.classList.add('is-open')
-    console.log(event.target.src)
-    lightboxImgEl.src = event.target.src
+        lboxEl.classList.add('is-open')
+    lightBoxImgEl.src = event.target.dataset.source
+    
   }
 }
 
