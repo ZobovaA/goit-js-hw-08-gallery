@@ -2,8 +2,8 @@ import galleryItems from './gallery-items.js'
 
 const listEl = document.querySelector('.js-gallery')
 const lboxEl = document.querySelector('.js-lightbox')
-const lightboxImageEl = document.querySelector('.lightbox__image')
-const buttonCloseEl = document.querySelector('.lightbox__button')
+const lightboxImgEl = document.querySelector('.lightbox__image')
+const btnCloseEl = document.querySelector('.lightbox__button')
 
 const addGalleryElement = galleryItems
   .map(({ preview, original, description }, index) => {
@@ -27,12 +27,12 @@ function clicker(event) {
   if (event.target.src) {
     lboxEl.classList.add('is-open')
     console.log(event.target.src)
-    lightboxImageEl.src = event.target.src
+    lightboxImgEl.src = event.target.src
   }
 }
 
 function closePopup() {
   lboxEl.classList.remove('is-open')
-  lightboxImageEl.src = ''
+  lightboxImgEl.src = ''
 }
-buttonCloseEl.addEventListener('click', closePopup)
+btnCloseEl.addEventListener('click', closePopup)
