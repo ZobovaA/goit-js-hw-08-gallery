@@ -30,7 +30,7 @@ function clicker(event) {
   event.preventDefault()
   if (event.target.src) {
         lboxEl.classList.add('is-open')
-    lightBoxImgEl.src = event.target.dataset.source
+    lightboxImgEl.src = event.target.dataset.source
     
   }
 }
