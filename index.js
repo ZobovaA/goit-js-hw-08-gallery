@@ -7,15 +7,20 @@ const buttonCloseEl = document.querySelector('.lightbox__button')
 
 const addGalleryElement = galleryItems
   .map(({ preview, original, description }, index) => {
-    return `<li class="gallery__item">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      data-index=${index}
-      alt="${description}"
-    />
- </li>`
+    return  `<li class="gallery__item">
+    <a
+      class="gallery__link"
+      href="${original}"
+    >
+      <img
+        class="gallery__image"
+        src="${preview}"
+        data-source="${original}"
+        data-index=${index}
+        alt="${description}"
+      />
+    </a>
+  </li>`;
   })
   .join(' ')
 
